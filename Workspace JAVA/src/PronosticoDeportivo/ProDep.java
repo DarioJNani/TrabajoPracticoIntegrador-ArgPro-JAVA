@@ -94,6 +94,13 @@ public class ProDep {
 			while(mostrPuntos.next()) {
 				System.out.println(mostrPuntos.getString(4)+"\t"+mostrPuntos.getString(2)+" "+mostrPuntos.getString(3));
 			}
+			Statement partFinal = reset.createStatement();
+			String partidos = "select * from partidos";
+			ResultSet mostrParFin = partFinal.executeQuery(partidos);
+			System.out.println("\nTodos los partidos finalizados\n");
+			while(mostrParFin.next()) {
+				System.out.println(mostrParFin.getInt(1)+"\t"+mostrParFin.getString(2).toUpperCase()+" vs "+mostrParFin.getString(4).toUpperCase()
+						+"  RESULTADO ("+mostrParFin.getString(3)+")");
 	  }
 			catch (Exception e) {
 				System.out.println("La conexion no pudo realizarse");
